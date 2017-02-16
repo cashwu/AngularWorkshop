@@ -5,14 +5,14 @@
     </header>
     <!-- This section should be hidden by default and shown when there are todos -->
     <section class="main" *ngIf="todos.length > 0">
-        <input class="toggle-all" type="checkbox">
+        <input class="toggle-all" type="checkbox" (click)="btnSelectAll($event.target.checked)">
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
             <li *ngFor="let todo of todos | todoFilter : myFooter.filterType" [class.completed]="todo.done">
                 <div class="view">
                     <input class="toggle" type="checkbox" [(ngModel)]="todo.done">
                     <label>{{todo.value | uppercase}}</label>
-                    <button class="destroy"></button>
+                    <button class="destroy" (click)="btnDelete(todo)"></button>
                 </div>
                 <input class="edit" value="Create a TodoMVC template">
             </li>
