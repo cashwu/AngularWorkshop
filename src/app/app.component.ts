@@ -15,6 +15,13 @@ export class AppComponent {
 
     }
 
+    ngOnInit(){
+        this.http.get("/api/Get?name=cash").subscribe(res =>  {
+          this.todos = res.json();
+        });
+    }
+
+
     submitTodo(newTodo: HTMLInputElement) {
         this.todos.push({
             value: newTodo.value,
@@ -41,4 +48,7 @@ export class AppComponent {
         });
     }
 
+    save() {
+        this.http.post("/api/post?name=cash", this.todos).subscribe(); // 要 subscribe 才會動
+    }
 }
