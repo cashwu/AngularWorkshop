@@ -22,7 +22,7 @@
     <app-footer [todos]="todos" (clearCompleted)="clearCompletedEvent()" #myFooter></app-footer>
 </section>
 <footer class="info">
-    <button (click)="save()">Save</button>
+    <button (click)="dataService.saveTodos(todos)">Save</button>
     <p>Double-click to edit a todo</p>
     <!-- Remove the below line ↓ -->
     <p>Template by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>

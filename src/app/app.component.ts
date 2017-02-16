@@ -1,6 +1,8 @@
 import { Http } from '@angular/http';
 import { Component } from '@angular/core';
 
+import { DataService } from './data.service';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -11,16 +13,16 @@ export class AppComponent {
 
     todos: any[] = [];
 
-    constructor(private http: Http) {
+    constructor(public dataService: DataService) {
 
     }
 
     ngOnInit(){
-        this.http.get("/api/Get?name=cash").subscribe(res =>  {
-          this.todos = res.json();
-        });
-    }
+      this.dataService.getTodos().subscribe(value => {
+          this.todos = value;
+      });
 
+    }
 
     submitTodo(newTodo: HTMLInputElement) {
         this.todos.push({
@@ -46,9 +48,5 @@ export class AppComponent {
             a.done = status
             return a;
         });
-    }
-
-    save() {
-        this.http.post("/api/post?name=cash", this.todos).subscribe(); // 要 subscribe 才會動
     }
 }
