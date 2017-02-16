@@ -17,4 +17,8 @@ export class AppComponent {
         });
         newTodo.value = "";
     }
+
+    clearCompletedEvent(){
+      this.todos = this.todos.filter(a => !a.done);
+    }
 }
