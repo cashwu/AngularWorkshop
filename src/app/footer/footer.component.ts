@@ -7,6 +7,8 @@ import { Input, Output, Component,  OnInit, EventEmitter } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  filterType : string = "All";
+
   @Input()
   todos: any[];
 

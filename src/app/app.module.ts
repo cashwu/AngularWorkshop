@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { FooterComponent } from './footer/footer.component';
+import { TodoFilterPipe } from './todo-filter.pipe';
 
 @NgModule({
     declarations: [
         AppComponent,
         TitleComponent,
-        FooterComponent
+        FooterComponent,
+        TodoFilterPipe
     ],
     imports: [
         BrowserModule,
